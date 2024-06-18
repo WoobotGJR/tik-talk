@@ -1,0 +1,46 @@
+@import "../../../styles.scss";
+
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100dvh;
+  align-items: center;
+  margin: 0 15%;
+}
+
+.error-message {
+  position: absolute;
+  color: tomato;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 21px;
+  border: 2px solid $gray-color;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  background-color: $dark-color;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-eye-btn {
+  position: absolute;
+  top: 55%;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: #ffffbf;
+}
+
+.password-eye-btn.active {
+  color: $primary-color;
+}
