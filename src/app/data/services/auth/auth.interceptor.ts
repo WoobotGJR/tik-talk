@@ -28,7 +28,7 @@ export const AuthTokenInterceptor: HttpInterceptorFn = (
         return refreshAndProceed(authService, req, next);
       }
 
-      return throwError(() => error);
+      return throwError(error);
     })
   );
 };
@@ -38,10 +38,12 @@ const refreshAndProceed = (
   req: HttpRequest<any>,
   next: HttpHandlerFn
 ): any => {
+  console.log('refresh and proceed');
   if (!refreshing) {
     refreshing = true;
     return authService.refreshAuthToken().pipe(
       switchMap((res) => {
+        console.log('refreshed', res);
         refreshing = false;
         return next(addToken(res.access_token, req));
       })
@@ -52,6 +54,7 @@ const refreshAndProceed = (
 };
 
 const addToken = (token: string, req: HttpRequest<any>) => {
+  console.log('add token', token);
   return req.clone({
     setHeaders: {
       Authorization: `Bearer ${token}`,

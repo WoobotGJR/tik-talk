@@ -1,1 +1,42 @@
-<p>sidebar works!</p>
+<img class="ml16 mb20" src="/assets/svg/logo-small.svg" alt="small logo" />
+
+<nav>
+  <ul class="main-menu-list">
+    <li *ngFor="let menuItem of menuItems">
+      <button class="main-menu-item">
+        <svg [icon]="menuItem.icon"></svg>
+        <span>{{ menuItem.name }}</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<p class="medium-text mb20 mt20">Followers</p>
+
+@for (profile of followers$ | async; track profile.id) {
+<app-follower-card [profile]="profile"></app-follower-card>
+}
+
+<div class="mt20 to-followers">
+  <a [routerLink]="['/followers']" class="to-followers-link medium-text"
+    >All followers
+  </a>
+  <svg class="to-followers-arrow" icon="arrow"></svg>
+</div>
+
+<footer class="sidebar-footer">
+  @if (me(); as me) { @if(me.avatarUrl) {
+  <img class="my-avatar" [src]="me.avatarUrl | imgUrl" alt="" /> } @else {
+  <img
+    class="my-avatar"
+    src="/assets/images/avatar-placeholder.png"
+    alt="avatar"
+  />
+
+  <p class="medium-text username-text">{{ me.username }}</p>
+
+  <a [routerLink]="['/settings']" class="settings-btn">
+    <svg icon="settings"></svg>
+  </a>
+  } }
+</footer>

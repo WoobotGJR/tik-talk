@@ -55,7 +55,7 @@ export class AuthService {
 
   refreshAuthToken = () => {
     return this.http
-      .post<TokenResponse>(`${this.baseApiUrl}token`, {
+      .post<TokenResponse>(`${this.baseApiUrl}refresh`, {
         refresh_token: this.refreshToken,
       })
       .pipe(
@@ -65,8 +65,7 @@ export class AuthService {
         catchError((err: HttpErrorResponse) => {
           this.logout();
           return throwError(err);
-        }),
-        catchError(this.handleError)
+        })
       );
   };
 

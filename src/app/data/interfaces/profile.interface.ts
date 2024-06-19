@@ -2,8 +2,8 @@ export interface Profile {
   id: number;
   username: string;
   avatarUrl: string | null;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   subscriptionsAmount: number;
   isActive: boolean;
   stack: string[];

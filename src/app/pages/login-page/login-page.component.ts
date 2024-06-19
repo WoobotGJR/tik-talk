@@ -59,8 +59,6 @@ export class LoginPageComponent {
           })
         )
         .subscribe((res) => {
-          console.log(res);
-          this.errorMessage = null;
           this.router.navigate(['']);
         });
     }

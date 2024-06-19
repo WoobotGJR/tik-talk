@@ -1,0 +1,106 @@
+@import "../../../constants.scss";
+
+:host {
+  display: block;
+  padding: 20px 12px;
+  background-color: $dark-hover-color;
+  position: relative;
+}
+
+.main-menu-list {
+  display: grid;
+  grid-gap: 8px;
+  list-style: none;
+  li {
+    padding: 0;
+  }
+}
+
+.main-menu-item {
+  padding: 16px 12px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  display: grid;
+  grid-template-columns: 16px 1fr max-content;
+  grid-gap: 12px;
+  width: 100%;
+  align-items: center;
+  text-align: left;
+
+  color: $light-color;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $dark-hover-color;
+    color: $primary-color;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.sidebar-footer {
+  background: $dark-hover-color;
+  border-radius: 2px;
+  padding: 4px 16px;
+  display: grid;
+  width: calc(100% - 32px);
+  grid-template-columns: 32px 1fr max-content;
+  grid-gap: 12px;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+
+  .username-text {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: $light-color;
+  }
+}
+
+.to-followers {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.to-followers-link {
+  color: $primary-color;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.to-followers-arrow {
+  width: 16px;
+  height: 16px;
+}
+
+.my-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.settings-btn {
+  width: 16px;
+  height: 16px;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

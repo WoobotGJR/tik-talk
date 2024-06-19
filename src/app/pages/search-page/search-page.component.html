@@ -1,6 +1,5 @@
 <div class="profile-card__wrapper">
   @for (profile of profiles; track $index) {
-  <app-profile-card></app-profile-card>
+  <app-profile-card [profile]="profile"></app-profile-card>
   }
 </div>
-<p>Profile is not found</p>

@@ -18,7 +18,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100dvh;
 }
 
 .skill-tag {
@@ -104,4 +104,11 @@ body {
   font-size: 12px;
   line-height: 16px;
   display: block;
+}
+
+.medium-text {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
 }
