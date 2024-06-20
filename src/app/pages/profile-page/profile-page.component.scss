@@ -1,0 +1,82 @@
+@import "../../../constants.scss";
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.settings-btn {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings-svg {
+  width: 16px;
+  height: 16px;
+  color: $dark-color;
+}
+
+.profile-body {
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.follower-avatar-btn {
+  display: block;
+
+  img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $dark-color;
+  }
+}
+
+.followers-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.to-followers-link {
+  position: relative;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background-color: $primary-color;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+
+    width: 2px;
+    height: 10px;
+    background-color: $dark-color;
+  }
+
+  &:before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  &:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.profile-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

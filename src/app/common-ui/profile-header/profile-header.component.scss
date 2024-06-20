@@ -1,0 +1,14 @@
+:host {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  grid-gap: 24px;
+  align-items: center;
+  padding: 20px;
+}
+
+img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+}

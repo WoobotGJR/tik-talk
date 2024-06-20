@@ -1,1 +1,37 @@
-<p>profile-page works!</p>
+@if (profile$ | async; as profile) {
+<header class="profile-header">
+  <app-profile-header [profile]="profile"></app-profile-header>
+  <a class="btn settings-btn" [routerLink]="['/settings']">
+    Edit
+    <svg class="settings-svg" icon="settings"></svg>
+  </a>
+</header>
+
+<main class="profile-body">
+  <app-post-feed></app-post-feed>
+
+  <div>
+    <h3 class="h6 mb16">Followers</h3>
+    <div class="followers-wrapper mb32">
+      @for (profile of followers$ | async; track profile.id) {
+      <a class="follower-avatar-btn" [routerLink]="['/profile', profile.id]"
+        ><img [src]="profile.avatarUrl | imgUrl" alt=""
+      /></a>
+      }
+
+      <a class="to-followers-link" [routerLink]="['/followers']"></a>
+    </div>
+
+    <h3 class="h6 mb16">Skills</h3>
+
+    <div class="profile-card__tags mb32">
+      @for (skill of profile.stack; track skill) {
+      <div class="skill-tag">{{ skill }}</div>
+      }
+    </div>
+
+    <h3 class="h6 mb16">About me</h3>
+    <p class="medium-text">{{ profile.description }}</p>
+  </div>
+</main>
+}
