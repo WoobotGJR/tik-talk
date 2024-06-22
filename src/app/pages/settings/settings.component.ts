@@ -1,4 +1,4 @@
-import { Component, effect, inject, Pipe } from '@angular/core';
+import { Component, effect, inject, Pipe, ViewChild } from '@angular/core';
 import { ProfileHeaderComponent } from '../../common-ui/profile-header/profile-header.component';
 import { AsyncPipe } from '@angular/common';
 import {
@@ -10,11 +10,12 @@ import {
 import { Router } from '@angular/router';
 import { ProfileService } from '../../data/services/profile.service';
 import { catchError, of } from 'rxjs';
+import { AvatarUploadComponent } from './avatar-upload/avatar-upload.component';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [ProfileHeaderComponent, AsyncPipe],
+  imports: [ProfileHeaderComponent, AvatarUploadComponent, AsyncPipe],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
 })
@@ -31,6 +32,8 @@ export class SettingsComponent {
     description: FormControl<string>;
     skills: FormControl<string>;
   }>;
+
+  @ViewChild(AvatarUploadComponent) avatarUpload!: AvatarUploadComponent;
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -86,6 +89,21 @@ export class SettingsComponent {
     e.preventDefault();
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
+
+    if (!this.form.valid) {
+      return;
+    }
+
+    if (this.avatarUpload.avatar) {
+      this.profileService.uploadAvatar(this.avatarUpload.avatar).pipe(
+        //@ts-ignore
+        catchError((error) => {
+          this.errorMessage = error.message;
+          console.log(this.errorMessage);
+        })
+      );
+    }
+
     this.profileService.updateProfile(this.form.value).pipe(
       catchError((error) => {
         this.errorMessage = error.message;

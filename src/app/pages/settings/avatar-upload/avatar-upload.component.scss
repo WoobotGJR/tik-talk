@@ -1,0 +1,44 @@
+@import "../../../../constants.scss";
+
+:host {
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: 123px 1fr;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $light-color;
+}
+
+.avatar {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropzone {
+  border-radius: 2px;
+  border: 1px dashed $light-color;
+  padding: 16px;
+  display: grid;
+  place-content: center;
+
+  &.file-over {
+    border: 1px dashed $primary-color;
+  }
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropzone-svg {
+  width: 18px;
+  height: 18px;
+}
+
+.avatar-input {
+  display: none;
+}

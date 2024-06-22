@@ -1,0 +1,22 @@
+<img class="avatar" [src]="preview()" alt="user avatar" />
+
+<div
+  class="dropzone"
+  tabindex="0"
+  dnd
+  (keyup.enter)="fileDrop.click()"
+  (fileDropped)="onFileDrop($event)"
+>
+  <input
+    class="avatar-input"
+    type="file"
+    tabindex="-1"
+    #fileDrop
+    (change)="fileBrowserHandler($event)"
+    [(ngModel)]="avatar"
+  />
+  <div class="dropzone-content">
+    <svg class="dropzone-svg" icon="upload"></svg>
+    <span class="medium-text">Drop your avatar here or download one</span>
+  </div>
+</div>

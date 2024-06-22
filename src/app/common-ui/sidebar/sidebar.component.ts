@@ -34,17 +34,17 @@ export class SidebarComponent {
     {
       name: 'Home',
       icon: 'home',
-      link: 'home',
+      link: '',
     },
     {
       name: 'Chats',
       icon: 'chats',
-      link: 'chats',
+      link: '/chats',
     },
     {
       name: 'Search',
       icon: 'search',
-      link: 'search',
+      link: '/search',
     },
   ];
 
