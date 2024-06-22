@@ -1,5 +1,7 @@
+<app-profile-filter></app-profile-filter>
+
 <div class="profile-card__wrapper">
-  @for (profile of profiles; track $index) {
+  @for (profile of profiles(); track $index) {
   <app-profile-card [profile]="profile"></app-profile-card>
   }
 </div>

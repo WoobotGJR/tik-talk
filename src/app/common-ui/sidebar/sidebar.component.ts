@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { SvgComponent } from '../svg/svg.component';
 import { AsyncPipe, JsonPipe, NgFor, NgIf } from '@angular/common';
 import { FollowerCardComponent } from './follower-card/follower-card.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ProfileService } from '../../data/services/profile.service';
 import { firstValueFrom } from 'rxjs';
 import { IfStmt } from '@angular/compiler';
@@ -16,6 +16,7 @@ import { ImgUrlPipe } from '../../data/utils/pipes/img-url.pipe';
     NgFor,
     FollowerCardComponent,
     RouterLink,
+    RouterLinkActive,
     AsyncPipe,
     JsonPipe,
     ImgUrlPipe,

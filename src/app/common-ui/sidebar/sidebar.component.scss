@@ -33,6 +33,7 @@
   line-height: 24px;
   font-weight: 700;
 
+  &:active,
   &:hover,
   &:focus-visible {
     background-color: $dark-hover-color;
